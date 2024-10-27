@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.brown.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.cburnett.min.css">
 
-<div style="height: 40vmin"></div>
 <div id="board">board</div>
 <div style="height: 5vmin"></div>
 <div style="text-align: center;"><button id="mover">M O V E R</button></div>
