@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.base.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.brown.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.cburnett.min.css">
+
+<div id="board">board</div>
+<div style="text-align: center;">
+    <button id="inicio">Inicio</button>
+    <button id="fin">Fin</button>
+    <button id="atras"><<<</button>
+    <button id="adelante" style="width: 30vmin;">>>></button>
+</div>
+<div id ="comentarios" style="height: 10vmin;text-align: left;color:#0af"></div>
+<div id ="texto"></div>
+
+<script type="module">
+
+    import { Chessground } from 'https://cdn.jsdelivr.net/npm/chessground@9.1.1/+esm';
+    import { Chess } from 'https://cdn.jsdelivr.net/npm/chess.js@1.0.0-beta.8/+esm';
+
+    let chess = new Chess();
+    chess.loadPgn("{{Linea PGN}}");
+    let orientacion = (chess.turn()=='b')?'white':"black";
+    let hist = chess.history({verbose:true});
+    let pos = 0, posfinal = hist.length-1, postarget = 0;
+
+    for (let i=0;i<=posfinal;i=i+2){
+        document.getElementById("texto").innerHTML += " "+Math.floor(i/2+1) + ". <span>"+hist[i].san+"</span>";
+        if (i<posfinal)document.getElementById("texto").innerHTML += " <span>"+hist[i+1].san+"</span>";
+    }
+    let spanes = document.getElementsByTagName("span");
+
+    for (let el in hist) {
+        (typeof chess.getComment()!=="undefined")? spanes[posfinal-el].style.color="#0af":"";
+        chess.undo();
+    }
+    chess.move(hist[pos]);    
+    if (orientacion == "white"){pos++; chess.move(hist[pos])}
+    postarget = pos;
+
+    function dibujar(){
+        spanes[pos].style.backgroundColor="transparent";
+        if (typeof chess.getComment()!=="undefined") spanes[pos].style.color = "#0af";
+        spanes[postarget].style.backgroundColor="#0af";
+        spanes[postarget].style.color = "white";
+
+        if (postarget < pos){for (let i=pos;i>postarget;i--){chess.undo();}}
+        if (postarget > pos){for (let i=pos;i<postarget;i++){chess.move(hist[i+1]);}}
+        document.getElementById("comentarios").innerText = spanes.length;
+        pos = postarget;
+
+        Chessground(board, {
+            fen: chess.fen(),
+            lastMove: [hist[pos].from,hist[pos].to],
+            orientation: orientacion,
+            viewOnly: true,
+            coordinates: false,
+        });
+        
+        if (typeof chess.getComment()!=="undefined"){
+            document.getElementById("comentarios").innerText = chess.getComment();
+            document.getElementById("adelante").style.backgroundColor = "#0af";
+        } else {
+            document.getElementById("comentarios").innerText = "";
+            document.getElementById("adelante").style.backgroundColor = "#888";
+        }
+    }
+    
+    dibujar();
+
+    document.getElementById("inicio").addEventListener("click", () => {postarget = 0; dibujar();});
+    document.getElementById("fin").addEventListener("click", () => {postarget = posfinal; dibujar();});
+    document.getElementById("atras").addEventListener("click", () => {(postarget>0)?postarget--:""; dibujar();});
+    document.getElementById("adelante").addEventListener("click", () => {(postarget<posfinal)?postarget++:""; dibujar();});
+    for (let i=0;i<=posfinal;i++){spanes[i].addEventListener("click", () => {postarget = i; dibujar();});}
+
+</script>
