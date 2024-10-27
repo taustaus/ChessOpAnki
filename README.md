@@ -9,7 +9,7 @@ It looks quite well in [AnkiDroid](https://github.com/ankidroid/Anki-Android). I
 
 You have to enter the PGN line in the question field, without header or variations. It admits simple comments. You can create the PGN with [lichess](https://lichess.org/).
 
-The "variation separator" file cleans up the lines from lichess studies, then you can copy in cards line by line.
+The "variation separator" is a html file that separates the lines from lichess studies, then you can copy in Anki cards line by line.
 
 Thanks to [chessground](https://github.com/lichess-org/chessground) and [chessjs](https://github.com/jhlywa/chess.js)
 
@@ -19,4 +19,8 @@ Thanks to [chessground](https://github.com/lichess-org/chessground) and [chessjs
   <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Imagen3.jpeg" width="250">
 </div>
 
-
+Variations separation
+<div>
+  <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Image41.jpeg" width="250">
+  <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Imagen5.jpeg" width="250">
+</div>
