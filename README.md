@@ -10,3 +10,5 @@ It looks quite well in [AnkiDroid](https://github.com/ankidroid/Anki-Android)
 You have to enter the PGN line in the question field, without header or variations. You can create the PGN with [lichess](https://lichess.org/). The "variation separator" file cleans up the lines from lichess studies.
 
 Thanks to [chessground](https://github.com/lichess-org/chessground) and [chessjs](https://github.com/jhlywa/chess.js)
+
+[Imagen1](https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/WhatsApp%20Image%202024-10-27%20at%2014.03.29.jpeg)
