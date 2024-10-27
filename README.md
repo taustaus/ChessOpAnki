@@ -1,6 +1,6 @@
 # ChessOpAnki
 
-This is an [Anki](https://apps.ankiweb.net/) card for studying openings, inspired by [catchouli](https://github.com/catchouli)'s video (thanks!).
+This is an [Anki](https://apps.ankiweb.net/) card for studying chess openings, inspired by [catchouli](https://github.com/catchouli)'s video (thanks!).
 https://www.youtube.com/watch?v=AMmR4useeKE&ab_channel=Catchouli
 
 I don't have much knowledge about programming (regex was hard), any feedback is welcome.
