@@ -12,9 +12,9 @@ You have to enter the PGN line in the question field, without header or variatio
 Thanks to [chessground](https://github.com/lichess-org/chessground) and [chessjs](https://github.com/jhlywa/chess.js)
 
 <div>
-  <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Imagen1.jpeg" width="100">
-  <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Imagen2.jpeg" width="100">
-  <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Imagen3.jpeg" width="100">
+  <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Imagen1.jpeg" width="200">
+  <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Imagen2.jpeg" width="200">
+  <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Imagen3.jpeg" width="200">
 </div>
 
 
