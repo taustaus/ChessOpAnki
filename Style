@@ -1,0 +1,10 @@
+.card {
+    font-family: arial;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+#mover{width: 80vmin;height: 20vmin;border-radius: 5vmin;background-color: #888}
+#board{width: 90vmin;aspect-ratio: 1;margin: auto;}
+button{width: 15vmin;height: 20vmin;background-color: #888;border-radius: 2vmin;}
