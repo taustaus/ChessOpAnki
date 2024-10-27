@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.base.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.brown.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.cburnett.min.css">
+
+<div style="height: 40vmin"></div>
+<div id="board">board</div>
+<div style="height: 5vmin"></div>
+<div style="text-align: center;"><button id="mover">M O V E R</button></div>
+
+<script type="module">
+
+    import { Chessground } from 'https://cdn.jsdelivr.net/npm/chessground@9.1.1/+esm';
+    import { Chess } from 'https://cdn.jsdelivr.net/npm/chess.js@1.0.0-beta.8/+esm';
+
+    let chess = new Chess();
+    chess.loadPgn("{{Linea PGN}}");
+    let orientacion = (chess.turn()=='b')?'white':"black";
+    let solovista = false;
+    let hist = chess.history({verbose:true});
+    let pos = 0, posfinal = hist.length-1;
+
+    for (let i in hist) chess.undo();
+    chess.move(hist[pos]);
+    if (orientacion == "white"){pos++; chess.move(hist[pos])}
+
+    function dibujar(){
+        if(pos >= posfinal){
+            pos = posfinal;
+            solovista = true;
+            document.getElementById("mover").style.backgroundColor = "#0af";
+            document.getElementById("mover").innerHTML = "F I N";
+        }
+
+        Chessground(board, {
+            fen: chess.fen(),
+            lastMove: [hist[pos].from,hist[pos].to],
+            orientation: orientacion,
+            viewOnly: solovista,
+            coordinates: false,
+            blockTouchScroll: true,
+            events: {move:(a,b)=>{
+                if (a==hist[pos+1].from && b==hist[pos+1].to){
+                    (pos<=posfinal-1)? chess.move(hist[pos+1]):"";
+                    (pos<=posfinal-2)? chess.move(hist[pos+2]):"";
+                    pos=pos+2;
+                }
+                dibujar();
+            }}    
+        });                   
+    }
+    
+    dibujar();
+
+    document.getElementById("mover").addEventListener("mousedown", () => {
+        if (pos<posfinal){pos++; chess.move(hist[pos]); dibujar();}
+    });
+
+</script>
+
