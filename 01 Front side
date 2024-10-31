@@ -2,9 +2,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.brown.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.cburnett.min.css">
 
-<div id="board">board</div>
-<div style="height: 5vmin"></div>
-<div style="text-align: center;"><button id="mover">M O V E R</button></div>
+<div class="col-1">
+		<div id="board">board</div>
+		<div style="height: 5vmin"></div>
+</div>
+<div class="col-2">
+		<div style="text-align: center;"><button id="mover">M O V E R</button></div>
+</div>
 
 <script type="module">
 
@@ -12,7 +16,7 @@
     import { Chess } from 'https://cdn.jsdelivr.net/npm/chess.js@1.0.0-beta.8/+esm';
 
     let chess = new Chess();
-    chess.loadPgn("{{Linea PGN}}");
+    chess.loadPgn("{{Anverso}}");
     let orientacion = (chess.turn()=='b')?'white':"black";
     let solovista = false;
     let hist = chess.history({verbose:true});
@@ -55,4 +59,3 @@
     });
 
 </script>
-
