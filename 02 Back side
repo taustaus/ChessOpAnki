@@ -2,15 +2,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.brown.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessground@9.1.1/assets/chessground.cburnett.min.css">
 
-<div id="board">board</div>
-<div style="text-align: center;">
-    <button id="inicio">Inicio</button>
-    <button id="fin">Fin</button>
-    <button id="atras"><<<</button>
-    <button id="adelante" style="width: 30vmin;">>>></button>
+<div class="col-1">
+    <div id="board">board</div>
 </div>
-<div id ="comentarios" style="height: 10vmin;text-align: left;color:#0af"></div>
-<div id ="texto"></div>
+<div class="col-2">
+    <div style="text-align: center;">
+        <button id="inicio">Inicio</button>
+        <button id="fin">Fin</button>
+        <button id="atras"><<<</button>
+        <button id="adelante">>>></button>
+    </div>
+    <div id ="comentarios" style="min-height: 10vmin;text-align: left;color:#0af"></div>
+    <div id ="texto"></div>
+</div>
 
 <script type="module">
 
@@ -18,7 +22,7 @@
     import { Chess } from 'https://cdn.jsdelivr.net/npm/chess.js@1.0.0-beta.8/+esm';
 
     let chess = new Chess();
-    chess.loadPgn("{{Linea PGN}}");
+    chess.loadPgn("{{Anverso}}");
     let orientacion = (chess.turn()=='b')?'white':"black";
     let hist = chess.history({verbose:true});
     let pos = 0, posfinal = hist.length-1, postarget = 0;
@@ -58,10 +62,8 @@
         
         if (typeof chess.getComment()!=="undefined"){
             document.getElementById("comentarios").innerText = chess.getComment();
-            document.getElementById("adelante").style.backgroundColor = "#0af";
         } else {
             document.getElementById("comentarios").innerText = "";
-            document.getElementById("adelante").style.backgroundColor = "#888";
         }
     }
     
