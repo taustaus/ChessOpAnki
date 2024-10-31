@@ -22,5 +22,5 @@ Thanks to [chessground](https://github.com/lichess-org/chessground) and [chessjs
 Variations separation
 <div>
   <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Image4.jpeg" width="250">
-  <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Image5.jpeg" width="250">
+  <img src="https://github.com/taustaus/ChessOpAnki/blob/main/Fotos%20readme/Imagen5.jpeg" width="250">
 </div>
