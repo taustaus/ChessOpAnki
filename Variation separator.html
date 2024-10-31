@@ -2,16 +2,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <style></style>
+    <style>
+        #boton{background-color:lightcoral;float: right; width: 20vw;height: 10vh;}
+    </style>
     
 </head>
 <body>
-    <div>
-        <label>Paste PGN from lichess study</label>
-        <input type="text" id="entrada" onchange="myFunction()">
-        <button id="bot">OK</button>
+    <div style="height: 15vh;">
+        <label>PNG a separar</label>
+        <input type="text" id="entrada" style="width: 30vw;height: 10vh;" onchange="myFunction()">
+        <button id="bot" style="width: 20vw;height: 10vh;">OK</button>
+        <button id="boton" onclick="copy()">Copiar</button>
     </div>
     <div id="intro"></div>
 
@@ -45,6 +46,16 @@
             escribir(variantes[el]);
         }
     }    
+
+    let copia = 0;
+    function copy(){
+        if (copia<=variantes.length-1){
+            navigator.clipboard.writeText(variantes[copia]);
+            copia++;
+            document.getElementById("boton").innerText = "Copia: "+copia+" / "+variantes.length;
+        }
+    }
+
 
 </script>
 </body>
