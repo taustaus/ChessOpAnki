@@ -5,6 +5,16 @@
     color: black;
     background-color: white;
 }
-#mover{width: 80vmin;height: 20vmin;border-radius: 5vmin;background-color: #888}
-#board{width: 90vmin;aspect-ratio: 1;margin: auto;}
-button{width: 15vmin;height: 20vmin;background-color: #888;border-radius: 2vmin;}
+#board{width: 90%;aspect-ratio: 1;margin: auto;}
+#mover{width: 80%;height: 15vh;border-radius: 2vmin;background-color: #888}
+button{width: 20%;height: 10vh;background-color: #888;border-radius: 2vmin;}
+#adelante{width: 30%;}
+
+[class*="col-"] {
+		width: 100%;
+}
+@media only screen and (min-width: 768px) { 
+		.col-1 {width: 50%;float: left;}
+		.col-2 {width: 50%;float: right;}
+#adelante{width: 20%;}
+}
